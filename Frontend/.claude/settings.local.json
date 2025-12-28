@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\app\\(tabs)/**)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\components\\topmenu/**)",
+      "Bash(npx expo start:*)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\components\\maincontents/**)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\components\\maincontents/**)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\components\\maincontents/**)",
+      "Read(/C:\\Users\\gmlfl\\Desktop\\noti\\components\\topmenu/**)",
+      "Bash(node --version:*)",
+      "Bash(npm --version:*)",
+      "Bash(npm install:*)",
+      "Bash(dir:*)",
+      "Bash(npm start)",
+      "Bash(npx expo install:*)",
+      "Bash(taskkill:*)",
+      "Bash(nul)",
+      "Bash(echo:*)",
+      "Bash(C:UsersgmlflDesktopnoticomponentsloginenterPw.tsx)",
+      "Bash(NUL)",
+      "Bash(git reset:*)",
+      "Bash(del \".\\nul\")",
+      "Bash(git clean:*)",
+      "Bash(findstr:*)",
+      "Bash(npx openapi-generator-cli generate:*)",
+      "Bash(git -C \"c:\\Users\\gmlfl\\Desktop\\noti\" show 91cfe2b --stat)",
+      "Bash(git -C \"c:\\Users\\gmlfl\\Desktop\\noti\" diff components/login/enterEmail.tsx)",
+      "Bash(node test-api.js:*)",
+      "Bash(node test-swagger-comparison.js:*)",
+      "Bash(npx expo:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
