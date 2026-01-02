@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React from "react";
 import { Image, Text, View, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -13,15 +12,6 @@ type EmptyScrapNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function EmptyScrap({ type }: EmptyScrapProps) {
   const navigation = useNavigation<EmptyScrapNavigationProp>();
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   const isInterest = type === "관심 공지";
 
   return (

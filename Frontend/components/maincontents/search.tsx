@@ -1,5 +1,4 @@
 import { useNavigation } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import React, { useState, useEffect } from "react";
 import {
   ActivityIndicator,
@@ -47,13 +46,6 @@ const MAX_RECENT_SEARCHES = 5;
 
 export default function Search() {
   const navigation = useNavigation();
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
 
   const [searchText, setSearchText] = useState("");
   const [searchResults, setSearchResults] = useState<Notice[]>([]);
@@ -210,8 +202,6 @@ export default function Search() {
   const handleNoticePress = (notice: Notice) => {
     (navigation as any).navigate("Detail", { notice });
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={{ flex: 1, backgroundColor: "white", padding: 15 }}>

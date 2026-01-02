@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, ScrollView, Alert,
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import Header from "@/components/topmenu/header";
 import BottomBar from "@/components/bottombar/bottombar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -37,12 +36,6 @@ export default function KeywordSettingsScreen() {
         break;
     }
   };
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
 
   useEffect(() => {
     loadKeywords();
@@ -130,8 +123,6 @@ export default function KeywordSettingsScreen() {
       console.error("키워드 토글 오류:", error);
     }
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>

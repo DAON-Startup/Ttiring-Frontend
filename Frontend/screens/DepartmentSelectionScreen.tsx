@@ -4,7 +4,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import Header from "@/components/topmenu/header";
 import BottomBar from "@/components/bottombar/bottombar";
 import { DEPARTMENTS } from "@/constants/departments";
@@ -41,12 +40,6 @@ export default function DepartmentSelectionScreen() {
     }
   };
 
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   const handleBackPress = () => {
     navigation.goBack();
   };
@@ -73,8 +66,6 @@ export default function DepartmentSelectionScreen() {
       dept.toLowerCase().includes(searchQuery.toLowerCase())
     )
   })).filter(college => college.departments.length > 0 || searchQuery === "");
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>

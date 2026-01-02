@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React, { useEffect, useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
@@ -32,14 +31,6 @@ const CATEGORY_CODES = [
 ];
 
 export default function All({ onCategoryChange, availableCategories }: AllProps) {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
   const [selected, setSelected] = useState(CATEGORY_CODES[0]);
 
   // 컴포넌트 마운트 시 첫 번째 카테고리 선택
@@ -51,8 +42,6 @@ export default function All({ onCategoryChange, availableCategories }: AllProps)
     setSelected(categoryCode);
     onCategoryChange?.(categoryCode);
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View

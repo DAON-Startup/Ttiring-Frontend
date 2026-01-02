@@ -15,7 +15,6 @@ import {
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import { registerUserToBackend, signUpWithEmail } from "../services/authAPI";
 import { TokenService } from "../services/tokenService";
 
@@ -39,15 +38,6 @@ export default function SignupPasswordScreen() {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   const handlePasswordChange = (text: string) => {
     setPassword(text);

@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React, { useState, useEffect } from "react";
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -14,12 +13,6 @@ export default function MyInfo() {
   const [userEmail, setUserEmail] = useState("1234abcd@inu.ac.kr");
   const [userStudentId, setUserStudentId] = useState("25학번");
   const [userDepartment, setUserDepartment] = useState("컴퓨터공학부");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
 
   useEffect(() => {
     const loadUserInfo = async () => {
@@ -37,8 +30,6 @@ export default function MyInfo() {
     };
     loadUserInfo();
   }, []);
-
-  if (!fontsLoaded) return null;
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "white" }}>

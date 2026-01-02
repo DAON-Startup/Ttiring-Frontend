@@ -4,7 +4,6 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RouteProp } from "@react-navigation/native";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import Header from "@/components/topmenu/header";
 import BottomBar from "@/components/bottombar/bottombar";
 import { useSignup } from "@/context/SignupContext";
@@ -40,12 +39,6 @@ export default function StudentIdSelectionScreen() {
     }
   };
 
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   const handleBackPress = () => {
     navigation.goBack();
   };
@@ -73,8 +66,6 @@ export default function StudentIdSelectionScreen() {
 
   // Generate years from 14 to 25
   const years = Array.from({ length: 12 }, (_, i) => 25 - i);
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>

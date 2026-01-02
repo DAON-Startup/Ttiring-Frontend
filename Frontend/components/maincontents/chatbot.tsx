@@ -1,16 +1,7 @@
-import { useFonts } from "expo-font";
 import React from "react";
 import { Text, View, Image } from "react-native";
 
 export default function Chatbot() {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
-
   return (
     <View
       style={{

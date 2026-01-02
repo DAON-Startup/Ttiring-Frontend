@@ -1,5 +1,4 @@
 import { useNavigation } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import React from "react";
 import {
   Image,
@@ -34,13 +33,6 @@ const parseDate = (dateStr: string | undefined | null): Date => {
 type InterestListNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export default function InterestList() {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   const navi = useNavigation<InterestListNavigationProp>();
   const { notificationNotices, removeNotification } = useNotification();
   const { isBookmarked, toggleBookmark } = useBookmark();
@@ -70,8 +62,6 @@ export default function InterestList() {
       console.error("공유 오류:", error);
     }
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={{ flex: 1, backgroundColor: "white" }}>
