@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import {
   Alert,
@@ -56,17 +55,6 @@ export default function EnterEmail() {
       setDepartment(signupData.department);
     }
   }, [signupData.studentId, signupData.department]);
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   const validateName = (text: string) => {
     if (!text) {

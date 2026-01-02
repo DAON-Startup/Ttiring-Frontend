@@ -1,15 +1,9 @@
-import { useFonts } from "expo-font";
 import React, { useState, useEffect } from "react";
 import { Text, TouchableOpacity, View, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNotification } from "../../context/NotificationContext";
 
 export default function Alert() {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
   const { notificationNotices, removeNotification, clearAllNotifications } = useNotification();
   const [keywords, setKeywords] = useState<string[]>([]);
 
@@ -32,8 +26,6 @@ export default function Alert() {
     if (keywords.length === 0) return true;
     return keywords.some((keyword) => notice.title.includes(keyword) || notice.content?.includes(keyword));
   });
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={{ flex: 1, backgroundColor: "#ffffff" }}>

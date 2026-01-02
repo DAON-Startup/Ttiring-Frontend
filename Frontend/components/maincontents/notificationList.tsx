@@ -1,5 +1,4 @@
 import { useNavigation } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import React from "react";
 import {
   Image,
@@ -30,12 +29,6 @@ const parseDate = (dateStr: string | undefined | null): Date => {
 };
 
 export default function NotificationList() {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
   const navi = useNavigation();
   const { notificationNotices, removeNotification } = useNotification();
   const { isBookmarked, toggleBookmark } = useBookmark();
@@ -73,8 +66,6 @@ export default function NotificationList() {
       console.error("알림 삭제 중 오류:", error);
     }
   };
-
-  if (!fontsLoaded) return null;
 
   if (notificationNotices.length === 0) {
     return (

@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TouchableOpacity, Switch, ScrollView, Modal } f
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import Header from "@/components/topmenu/header";
 import BottomBar from "@/components/bottombar/bottombar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -38,12 +37,6 @@ export default function NotificationSettingsScreen() {
         break;
     }
   };
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
 
   useEffect(() => {
     loadSettings();
@@ -108,8 +101,6 @@ export default function NotificationSettingsScreen() {
       console.error("설정 저장 오류:", error);
     }
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>

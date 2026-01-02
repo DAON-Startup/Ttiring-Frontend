@@ -4,7 +4,6 @@ import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
 import { useNotification } from "../context/NotificationContext";
-import { useFonts } from "expo-font";
 
 // 상단 탭바
 import Header from "@/components/topmenu/header";
@@ -17,12 +16,6 @@ type AlertScreenNavigationProp = NativeStackNavigationProp<RootStackParamList, '
 export default function AlertScreen() {
   const navigation = useNavigation<AlertScreenNavigationProp>();
   const { notificationNotices, removeNotification } = useNotification();
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   const handleTabPress = (index: number) => {
     switch (index) {

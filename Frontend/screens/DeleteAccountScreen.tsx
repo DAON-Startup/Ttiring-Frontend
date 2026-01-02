@@ -3,7 +3,6 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert } from "reac
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import Header from "@/components/topmenu/header";
 import BottomBar from "@/components/bottombar/bottombar";
 import { TokenService } from "../services/tokenService";
@@ -38,12 +37,6 @@ export default function DeleteAccountScreen() {
         break;
     }
   };
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
 
   const handleBackPress = () => {
     navigation.goBack();
@@ -83,8 +76,6 @@ export default function DeleteAccountScreen() {
       }
     }
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <View style={styles.container}>

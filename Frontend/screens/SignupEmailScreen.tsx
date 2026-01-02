@@ -13,7 +13,6 @@ import {
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 
 type SignupEmailNavigationProp = NativeStackNavigationProp<RootStackParamList, "SignupEmail">;
 type SignupEmailRouteProp = RouteProp<RootStackParamList, "SignupEmail">;
@@ -31,15 +30,6 @@ export default function SignupEmailScreen() {
   const { name, studentId, department } = route.params;
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   // 이메일이 올바른 도메인으로 끝나는지 확인
   const isValidEmail = email.endsWith("@inu.ac.kr");

@@ -2,7 +2,6 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -18,14 +17,6 @@ import { Swipeable } from "react-native-gesture-handler";
 import { getNotices, Notice } from "../../services/crawlerAPI";
 
 export default function MainContents() {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
   const navi = useNavigation();
   const [readTitles, setReadTitles] = useState<string[]>([]);
   const [bookmarkedItems, setBookmarkedItems] = useState<string[]>([]);
@@ -202,8 +193,6 @@ export default function MainContents() {
       </TouchableOpacity>
     );
   };
-
-  if (!fontsLoaded) return null;
 
   // 날짜별로 그룹화
   const groupedNotices: { [key: string]: Notice[] } = {};

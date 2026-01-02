@@ -12,7 +12,6 @@ import {
 import { useNavigation, useRoute, RouteProp } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 import { DEPARTMENTS } from "../constants/departments";
 
 type SignupDepartmentNavigationProp = NativeStackNavigationProp<RootStackParamList, "SignupDepartment">;
@@ -32,15 +31,6 @@ export default function SignupDepartmentScreen() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
   const [error, setError] = useState("");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   // Flatten all departments for search
   const allDepartments = DEPARTMENTS.flatMap(college => college.departments);

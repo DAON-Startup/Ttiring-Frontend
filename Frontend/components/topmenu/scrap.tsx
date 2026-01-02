@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
@@ -8,16 +7,7 @@ interface ScrapProps {
 }
 
 export default function Scrap({ selectedTab, onTabChange }: ScrapProps) {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
   const categories: ("관심 공지" | "스크랩 공지")[] = ["관심 공지", "스크랩 공지"];
-
-  if (!fontsLoaded) return null;
 
   return (
     <View

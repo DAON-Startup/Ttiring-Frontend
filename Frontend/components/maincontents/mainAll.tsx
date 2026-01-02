@@ -2,7 +2,6 @@
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import { useFonts } from "expo-font";
 import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
@@ -88,14 +87,6 @@ const parseDate = (dateStr: string | undefined | null): Date => {
 };
 
 export default function MainContents({ category, onCategoriesExtracted, sortType = "latest" }: MainContentsProps) {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
-
   const navi = useNavigation();
   const [readTitles, setReadTitles] = useState<string[]>([]);
   const { isBookmarked, toggleBookmark } = useBookmark();
@@ -287,8 +278,6 @@ export default function MainContents({ category, onCategoriesExtracted, sortType
       </TouchableOpacity>
     );
   };
-
-  if (!fontsLoaded) return null;
 
   // 월별로 그룹화
   const groupedNotices: { [key: string]: Notice[] } = {};

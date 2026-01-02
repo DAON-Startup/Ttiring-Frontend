@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useFonts } from "expo-font";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -52,15 +51,6 @@ export default function LoginMain() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   // Firebase FCM 토큰 받기 함수
   const getFirebaseFCMToken = async () => {
     try {
@@ -94,8 +84,6 @@ export default function LoginMain() {
       getFirebaseFCMToken();
     }
   }, []);
-
-  if (!fontsLoaded) return null;
 
   const handleLogin = async () => {
     let isValid = true;
