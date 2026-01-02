@@ -1,23 +1,11 @@
-import { useFonts } from "expo-font";
 import React, { useEffect, useRef } from "react";
 import { Animated, Dimensions, Image, Text, View } from "react-native";
 
 export default function Splash() {
   const { width } = Dimensions.get("window");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
   const rotateAni = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    if (!fontsLoaded) return;
-
     const rotate = () => {
       Animated.sequence([
         Animated.timing(rotateAni, {
@@ -46,7 +34,7 @@ export default function Splash() {
     };
 
     rotate();
-  }, [rotateAni, fontsLoaded]);
+  }, [rotateAni]);
 
   return (
     <View

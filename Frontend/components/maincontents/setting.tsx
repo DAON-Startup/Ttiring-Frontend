@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React, { useEffect, useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -11,14 +10,6 @@ export default function Setting() {
   const [userName, setUserName] = useState("김민지");
   const [userMajor, setUserMajor] = useState("컴퓨터공학부 25학번");
   const [userEmail, setUserEmail] = useState("1234abcd@inu.ac.kr");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
 
   useEffect(() => {
     const loadUserInfo = async () => {
@@ -130,8 +121,6 @@ export default function Setting() {
     // 나머지는 개발 중
     Alert.alert("안내", `${subItem}\n\n현재 개발 중인 기능입니다.`);
   };
-
-  if (!fontsLoaded) return null;
 
   return (
     <ScrollView style={{ flex: 1 }}>

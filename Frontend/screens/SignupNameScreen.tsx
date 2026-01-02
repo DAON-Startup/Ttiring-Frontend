@@ -12,7 +12,6 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import type { RootStackParamList } from "../App";
-import { useFonts } from "expo-font";
 
 type SignupNameNavigationProp = NativeStackNavigationProp<RootStackParamList, "SignupName">;
 
@@ -27,15 +26,6 @@ export default function SignupNameScreen() {
   const navigation = useNavigation<SignupNameNavigationProp>();
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
-
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-Regular": require("../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
-  if (!fontsLoaded) return null;
 
   const handleContinue = () => {
     if (!name.trim()) {

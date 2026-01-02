@@ -6,6 +6,7 @@ import { BookmarkProvider } from './context/BookmarkContext';
 import { NotificationProvider } from './context/NotificationContext';
 import { ToastProvider } from './context/ToastContext';
 import { SignupProvider } from './context/SignupContext';
+import { FontProvider } from './context/FontContext';
 import { View, Platform, StyleSheet } from 'react-native';
 
 // 화면 컴포넌트 import
@@ -108,15 +109,17 @@ export default function App() {
     <View style={styles.outerContainer}>
       <View style={styles.appContainer}>
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <ToastProvider>
-            <SignupProvider>
-              <NotificationProvider>
-                <BookmarkProvider>
-                  <AppContent />
-                </BookmarkProvider>
-              </NotificationProvider>
-            </SignupProvider>
-          </ToastProvider>
+          <FontProvider>
+            <ToastProvider>
+              <SignupProvider>
+                <NotificationProvider>
+                  <BookmarkProvider>
+                    <AppContent />
+                  </BookmarkProvider>
+                </NotificationProvider>
+              </SignupProvider>
+            </ToastProvider>
+          </FontProvider>
         </GestureHandlerRootView>
       </View>
     </View>

@@ -1,4 +1,3 @@
-import { useFonts } from "expo-font";
 import React from "react";
 import { Image, Text, TouchableOpacity, View, StyleSheet } from "react-native";
 
@@ -8,15 +7,6 @@ interface BottomBarProps {
 }
 
 export default function BottomBar({ onTabPress, activeTab = 0 }: BottomBarProps) {
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-ExtraBold": require("../../assets/fonts/Pretendard-ExtraBold.ttf"),
-    "Pretendard-ExtraLight": require("../../assets/fonts/Pretendard-ExtraLight.ttf"),
-    "Pretendard-Light": require("../../assets/fonts/Pretendard-Light.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-    "Pretendard-SemiBold": require("../../assets/fonts/Pretendard-SemiBold.ttf"),
-  });
-
   const navItems = [
     { type: "image", src: require("../../assets/images/file.png") },
     { type: "image", src: require("../../assets/images/scrap.png") },
@@ -44,7 +34,6 @@ export default function BottomBar({ onTabPress, activeTab = 0 }: BottomBarProps)
 
   const itemNames = ["공지사항", "공지 보관함", "AI 챗봇", "검색", "더보기"];
 
-  if (!fontsLoaded) return null;
   return (
     <View style={styles.container}>
       {/* 하단 탭바 */}

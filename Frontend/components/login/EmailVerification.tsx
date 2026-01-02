@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { useFonts } from "expo-font";
 import React, { useEffect, useState, useRef } from "react";
 import {
   ActivityIndicator,
@@ -33,10 +32,6 @@ export default function EmailVerification({ email }: EmailVerificationProps) {
   const navigation = useNavigation<EmailVerificationScreenNavigationProp>();
   const { width } = Dimensions.get("window");
   const [isLoading, setIsLoading] = useState(false);
-  const [fontsLoaded] = useFonts({
-    "Pretendard-Bold": require("../../assets/fonts/Pretendard-Bold.ttf"),
-    "Pretendard-Regular": require("../../assets/fonts/Pretendard-Regular.ttf"),
-  });
 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const hasNavigatedRef = useRef(false); // 중복 네비게이션 방지
@@ -84,8 +79,6 @@ export default function EmailVerification({ email }: EmailVerificationProps) {
       }
     };
   }, [navigation]);
-
-  if (!fontsLoaded) return null;
 
   const handleResendEmail = async () => {
     const user = auth.currentUser;
